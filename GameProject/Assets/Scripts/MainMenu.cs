@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         // Vaihda tämä Scenen nimi siihen mistä peli alkaa
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("UlkoScene");
     }
 
     public void QuitGame()
