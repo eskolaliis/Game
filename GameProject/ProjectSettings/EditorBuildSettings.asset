@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UlkoScene.unity
     guid: 782290b83b0f2430689d61bc97d155e8
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c5a880abe9eb841e692a1477dcd51ec5
+  - enabled: 1
+    path: Assets/Scenes/AulaScene.unity
+    guid: 92a5145943131524e834395dd8e7a120
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
