@@ -4,20 +4,30 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject inventoryPanel; // UI-paneeli
-    public Transform itemParent; // Inventaarion esineiden sijoituspaikka UI:ssa
-    public GameObject inventoryItemPrefab; // Prefab esineen esittämiseksi UI:ssa
+    // Esineiden lista
+    private List<string> collectedItems = new List<string>();
 
-    private List<CollectibleItem> inventoryList = new List<CollectibleItem>();
+    // UI-paneeli inventaariolle
+    public Transform inventoryPanel;
 
-    public void AddItem(CollectibleItem item)
+    // Prefab yksittäiselle esineelle inventaariossa
+    public GameObject inventoryItemPrefab;
+
+    public void AddItem(string itemName, Sprite itemIcon)
     {
         // Lisää esine listaan
-        inventoryList.Add(item);
+        collectedItems.Add(itemName);
 
-        // Päivitä UI
-        GameObject newItem = Instantiate(inventoryItemPrefab, itemParent);
-        newItem.GetComponentInChildren<Text>().text = item.itemName; // Esineen nimi
-        newItem.GetComponent<Image>().sprite = item.itemIcon; // Esineen kuvake
+        // Luo uusi UI-elementti inventaariopaneeliin
+        GameObject newItem = Instantiate(inventoryItemPrefab, inventoryPanel);
+        Image itemImage = newItem.GetComponentInChildren<Image>();
+
+        // Aseta kuvake ja nimi
+        if (itemImage != null)
+        {
+            itemImage.sprite = itemIcon;
+        }
+
+        Debug.Log($"Esine lisätty inventaarioon: {itemName}");
     }
 }
