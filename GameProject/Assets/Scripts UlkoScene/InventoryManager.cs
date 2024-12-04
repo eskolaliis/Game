@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     // Esineiden lista
-    private List<string> collectedItems = new List<string>();
+    private List<InventoryItem> inventoryItems = new List<InventoryItem>();
 
     // UI-paneeli inventaariolle
     public Transform inventoryPanel;
@@ -13,21 +13,41 @@ public class InventoryManager : MonoBehaviour
     // Prefab yksittäiselle esineelle inventaariossa
     public GameObject inventoryItemPrefab;
 
+    // Esineen lisääminen inventaarioon
     public void AddItem(string itemName, Sprite itemIcon)
     {
-        // Lisää esine listaan
-        collectedItems.Add(itemName);
+        // Luo uusi InventoryItem ja lisää se listaan
+        InventoryItem newItem = new InventoryItem { name = itemName, icon = itemIcon };
+        inventoryItems.Add(newItem);
 
         // Luo uusi UI-elementti inventaariopaneeliin
-        GameObject newItem = Instantiate(inventoryItemPrefab, inventoryPanel);
-        Image itemImage = newItem.GetComponentInChildren<Image>();
-
-        // Aseta kuvake ja nimi
+        GameObject newItemUI = Instantiate(inventoryItemPrefab, inventoryPanel.transform);
+        Image itemImage = newItemUI.GetComponentInChildren<Image>();
         if (itemImage != null)
         {
-            itemImage.sprite = itemIcon;
+            itemImage.sprite = itemIcon; // Aseta esineen kuvake
         }
 
         Debug.Log($"Esine lisätty inventaarioon: {itemName}");
+    }
+
+    // Tarkista, onko esine inventaariossa
+    public bool HasItem(string itemName)
+    {
+        foreach (InventoryItem item in inventoryItems)
+        {
+            if (item.name == itemName)
+            {
+                return true; // Esine löytyi
+            }
+        }
+        return false; // Esinettä ei löytynyt
+    }
+
+    // Sisäinen InventoryItem-luokka
+    public class InventoryItem
+    {
+        public string name; // Esineen nimi
+        public Sprite icon; // Esineen kuvake
     }
 }
