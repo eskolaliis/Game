@@ -2,7 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class InventoryManager : MonoBehaviour
+
+
 {
     // Esineiden lista
     private List<InventoryItem> inventoryItems = new List<InventoryItem>();
@@ -12,6 +16,8 @@ public class InventoryManager : MonoBehaviour
 
     // Prefab yksittäiselle esineelle inventaariossa
     public GameObject inventoryItemPrefab;
+
+    
 
     // Esineen lisääminen inventaarioon
     public void AddItem(string itemName, Sprite itemIcon)
@@ -50,4 +56,6 @@ public class InventoryManager : MonoBehaviour
         public string name; // Esineen nimi
         public Sprite icon; // Esineen kuvake
     }
+
+    
 }
