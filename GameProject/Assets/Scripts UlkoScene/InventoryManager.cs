@@ -19,8 +19,14 @@ public class InventoryManager : MonoBehaviour
         collectedItems.Add(itemName);
 
         // Luo uusi UI-elementti inventaariopaneeliin
-        GameObject newItem = Instantiate(inventoryItemPrefab, inventoryPanel);
+    
+        GameObject newItem = Instantiate(inventoryItemPrefab, inventoryPanel.transform);
         Image itemImage = newItem.GetComponentInChildren<Image>();
+        if (itemImage != null)
+        {
+            itemImage.sprite = itemIcon; // Tämä asettaa esineen kuvakkeen
+        }
+
 
         // Aseta kuvake ja nimi
         if (itemImage != null)
