@@ -57,5 +57,17 @@ public class InventoryManager : MonoBehaviour
         public Sprite icon; // Esineen kuvake
     }
 
+    // Esineen poistaminen inventaariosta
+public void RemoveItem(string itemName)
+{
+    InventoryItem itemToRemove = inventoryItems.Find(item => item.name == itemName);
+    if (itemToRemove != null)
+    {
+        inventoryItems.Remove(itemToRemove);
+        Debug.Log($"Esine poistettu inventaariosta: {itemName}");
+    }
+}
+
+
     
 }
