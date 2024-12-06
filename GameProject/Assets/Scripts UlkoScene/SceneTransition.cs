@@ -1,8 +1,7 @@
-using System.Collections; // Lisää tämä!
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 
 public class SceneTransition : MonoBehaviour
 {
@@ -15,32 +14,41 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
-    public void LoadScene(string sceneName)
+    public void TriggerFadeOutAndLoad(string sceneName)
     {
-        // Aloita fade-out ja vaihda Scene
+        // Käynnistä FadeOut ja lataa Scene sen jälkeen
         StartCoroutine(FadeOut(sceneName));
     }
 
     private IEnumerator FadeIn()
     {
-        fadeImage.enabled = true; // Varmista, että kuva on näkyvissä
-        float timer = fadeDuration;
+        fadeImage.enabled = true; // Näytä kuva
         Color color = fadeImage.color;
-        while (timer > 0)
+        color.a = 1f; // Täysin musta alussa
+        fadeImage.color = color;
+
+        float timer = 0f;
+        while (timer < fadeDuration)
         {
-            timer -= Time.deltaTime;
-            color.a = timer / fadeDuration; // Vähennä alpha-arvoa
+            timer += Time.deltaTime;
+            color.a = 1 - (timer / fadeDuration); // Laske alpha-arvoa
             fadeImage.color = color;
             yield return null;
         }
-        fadeImage.enabled = false; // Piilota kuva fade-inin jälkeen
+
+        color.a = 0f; // Läpinäkyvä lopussa
+        fadeImage.color = color;
+        fadeImage.enabled = false; // Piilota kuva
     }
 
     private IEnumerator FadeOut(string sceneName)
     {
         fadeImage.enabled = true; // Näytä kuva
-        float timer = 0f;
         Color color = fadeImage.color;
+        color.a = 0f; // Aloita täysin läpinäkyvästä
+        fadeImage.color = color;
+
+        float timer = 0f;
         while (timer < fadeDuration)
         {
             timer += Time.deltaTime;
@@ -48,6 +56,11 @@ public class SceneTransition : MonoBehaviour
             fadeImage.color = color;
             yield return null;
         }
+
+        color.a = 1f; // Täysin musta lopussa
+        fadeImage.color = color;
+
+        // Lataa seuraava Scene FadeOutin jälkeen
         SceneManager.LoadScene(sceneName);
     }
 }

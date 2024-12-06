@@ -6,25 +6,37 @@ public class DoorInteraction : MonoBehaviour
 {
     public string requiredItemName = "Avain"; // Nimi inventaariossa olevasta avaimesta
     public string nextSceneName = "AulaScene"; // Seuraava Scene
+    public SceneTransition sceneTransition; // Linkitä SceneTransition tähän Inspectorissa
+
 
     public TextMeshProUGUI lockMessage; // UI-tekstielementti
     // Jos käytät TextMeshPro:ta, käytä: public TextMeshProUGUI lockMessage;
 
-    private void OnMouseDown()
+private void OnMouseDown()
+{
+    InventoryManager inventory = FindFirstObjectByType<InventoryManager>();
+    if (inventory != null && inventory.HasItem(requiredItemName))
     {
-        // Tarkistetaan inventaario
-        InventoryManager inventory = FindFirstObjectByType<InventoryManager>();
-        if (inventory != null && inventory.HasItem(requiredItemName))
+        Debug.Log($"Ovi avautuu, koska {requiredItemName} löytyy inventaariosta!");
+
+        // FadeOut ennen Scene-vaihtoa
+        if (sceneTransition != null)
         {
-            Debug.Log($"Ovi avautuu, koska {requiredItemName} löytyy inventaariosta!");
-            LoadNextScene();
+            sceneTransition.TriggerFadeOutAndLoad(nextSceneName);
         }
         else
         {
-            Debug.Log("Ovi on lukossa. Tarvitset avaimen!");
-            ShowLockMessage("Ovi on lukossa! Tarvitset avaimen.");
+            // Jos SceneTransition ei ole määritetty, lataa seuraava Scene suoraan
+            LoadNextScene();
         }
     }
+    else
+    {
+        Debug.Log("Ovi on lukossa. Tarvitset avaimen!");
+        ShowLockMessage("Ovi on lukossa! Tarvitset avaimen.");
+    }
+}
+
 
     private void LoadNextScene()
     {
