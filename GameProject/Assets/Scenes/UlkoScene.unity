@@ -1209,6 +1209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItemName: Avain
   nextSceneName: AulaScene
+  sceneTransition: {fileID: 0}
   lockMessage: {fileID: 1563882239}
 --- !u!114 &1338324569
 MonoBehaviour:
