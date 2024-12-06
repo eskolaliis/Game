@@ -1732,17 +1732,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579602030}
-  m_LocalRotation: {x: 0.5043443, y: -0.49561763, z: 0.49561763, w: 0.5043443}
+  m_LocalRotation: {x: 0.4931289, y: -0.500855, z: 0.49022928, w: 0.5154061}
   m_LocalPosition: {x: 0, y: 0, z: 1.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0176235, y: 2.0473156, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2099407331}
-  m_LocalEulerAnglesHint: {x: 90, y: -70, z: 19}
+  m_LocalEulerAnglesHint: {x: 88, y: -70, z: 19}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.9000003}
-  m_SizeDelta: {x: 8, y: 5}
+  m_AnchoredPosition: {x: 5.6, y: 2.8}
+  m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579602032
 MonoBehaviour:
@@ -1764,8 +1764,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tervetuloa peliin! Etsi vihjeit\xE4 ymp\xE4rist\xF6st\xE4 ja k\xE4yt\xE4
-    ker\xE4\xE4mi\xE4si esineit\xE4 edet\xE4ksesi. Tavoitteena on "
+  m_text: "Tervetuloa peliin! Tutki ymp\xE4rist\xF6\xE4, ker\xE4\xE4 esineit\xE4
+    ja ratkaise pulmat edet\xE4ksesi opettajan tietokoneelle. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2370,8 +2370,8 @@ Transform:
   m_GameObject: {fileID: 2099407327}
   serializedVersion: 2
   m_LocalRotation: {x: -0.45922908, y: 0.44977525, z: -0.5376883, w: 0.545621}
-  m_LocalPosition: {x: -352, y: 77, z: 834}
-  m_LocalScale: {x: 70, y: 50, z: 30}
+  m_LocalPosition: {x: -356, y: 158, z: 834.91}
+  m_LocalScale: {x: 31.10146, y: 50, z: 29.479948}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1579602031}
