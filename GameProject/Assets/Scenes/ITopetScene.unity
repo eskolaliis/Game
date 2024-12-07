@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 1118898325}
   - component: {fileID: 1118898327}
   - component: {fileID: 1118898326}
+  - component: {fileID: 1118898328}
   m_Layer: 5
   m_Name: TekstiTMP
   m_TagString: Untagged
@@ -869,7 +870,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hei! Miksi olet t\xE4\xE4ll\xE4? Onko jotain tapahtunut?"
+  m_text: "Hei! Miksi olet t\xE4\xE4ll\xE4? Onko jotain tapahtunut?\n\n(hint: paina
+    F)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -988,6 +990,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1118898328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118898324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d2a3833d45cda45a6d777b93c70313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelText: {fileID: 1118898326}
 --- !u!1 &1175927943
 GameObject:
   m_ObjectHideFlags: 0
