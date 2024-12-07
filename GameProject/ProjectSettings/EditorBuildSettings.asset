@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AulaScene.unity
     guid: 92a5145943131524e834395dd8e7a120
+  - enabled: 0
+    path: Assets/Scenes/ITopetScene.unity
+    guid: c82cb6e776ab3af47b9a86a5b026685c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
