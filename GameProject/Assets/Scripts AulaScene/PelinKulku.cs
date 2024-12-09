@@ -12,9 +12,9 @@ public class PelinKulku : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
-    
+
 
     public void VihjeNappula()
     {
@@ -43,7 +43,8 @@ public class PelinKulku : MonoBehaviour
             Invoke("PalautaOpenTeksti", 5f);
         }
 
-        else {
+        else
+        {
             OpenTeksti.SetActive(false);
             HarhautusTeksti.SetActive(true);
             Nuoli.SetActive(true);
@@ -51,10 +52,10 @@ public class PelinKulku : MonoBehaviour
     }
 
 
-   
+
 
     void Update()
     {
-        
+
     }
 }

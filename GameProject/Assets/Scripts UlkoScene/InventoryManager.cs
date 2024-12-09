@@ -68,6 +68,11 @@ public void RemoveItem(string itemName)
     }
 }
 
+public bool OnkoAvainLöytynyt(string avainNimi)
+{
+    return inventoryItems.Exists(item => item.name == avainNimi);
+}
+
 
     
 }
