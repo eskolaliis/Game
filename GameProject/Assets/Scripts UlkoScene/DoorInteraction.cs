@@ -8,47 +8,96 @@ public class DoorInteraction : MonoBehaviour
     public string nextSceneName = "AulaScene"; // Seuraava Scene
     public SceneTransition sceneTransition; // Linkitä SceneTransition tähän Inspectorissa
 
-
     public TextMeshProUGUI lockMessage; // UI-tekstielementti
-    // Jos käytät TextMeshPro:ta, käytä: public TextMeshProUGUI lockMessage;
+    public AudioSource doorOpenSound; // Ääni oven avaamiselle
 
-private void OnMouseDown()
-{
-    InventoryManager inventory = FindFirstObjectByType<InventoryManager>();
-    if (inventory != null && inventory.HasItem(requiredItemName))
+    private void OnMouseDown()
     {
-        Debug.Log($"Ovi avautuu, koska {requiredItemName} löytyy inventaariosta!");
+        InventoryManager inventory = FindFirstObjectByType<InventoryManager>();
+        if (inventory != null && inventory.HasItem(requiredItemName))
+        {
+            Debug.Log($"Ovi avautuu, koska {requiredItemName} löytyy inventaariosta!");
 
-        // FadeOut ennen Scene-vaihtoa
+            // Soita oven avautumisen ääni
+            if (doorOpenSound != null)
+            {
+                Debug.Log("Oven ääni soitetaan!");
+                doorOpenSound.Play();
+            }
+            else
+            {
+                Debug.LogWarning("Door Open Sound ei ole määritetty!");
+            }
+
+
+            // FadeOut ennen Scene-vaihtoa
+            if (sceneTransition != null)
+            {
+                if (doorOpenSound != null)
+                {
+                    Invoke("TriggerFadeOutAndLoad", doorOpenSound.clip.length); // Viivästytä Scene-vaihtoa
+                }
+                else
+                {
+                    sceneTransition.TriggerFadeOutAndLoad(nextSceneName);
+                }
+            }
+            else
+            {
+                // Jos SceneTransition ei ole määritetty, lataa seuraava Scene suoraan
+                if (doorOpenSound != null)
+                {
+                    Invoke("LoadNextScene", doorOpenSound.clip.length); // Viivästytä Scene-vaihtoa
+                }
+                else
+                {
+                    LoadNextScene();
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Ovi on lukossa. Tarvitset avaimen!");
+            ShowLockMessage("Ovi on lukossa! Tarvitset avaimen.");
+        }
+    }
+
+    private void TriggerFadeOutAndLoad()
+    {
         if (sceneTransition != null)
         {
             sceneTransition.TriggerFadeOutAndLoad(nextSceneName);
         }
+    }
+
+    private void LoadNextScene()
+{
+    if (!string.IsNullOrEmpty(nextSceneName))
+    {
+        // Odota äänen pituuden verran ennen Scene-vaihtoa
+        if (doorOpenSound != null)
+        {
+            float soundDuration = doorOpenSound.clip.length; // Hae äänen pituus
+            Invoke(nameof(LoadSceneDelayed), soundDuration); // Kutsu Scene-vaihto viiveellä
+        }
         else
         {
-            // Jos SceneTransition ei ole määritetty, lataa seuraava Scene suoraan
-            LoadNextScene();
+            Debug.LogWarning("Door Open Sound ei ole määritetty! Ladataan Scene suoraan.");
+            SceneManager.LoadScene(nextSceneName); // Jos ääntä ei ole, vaihda Scene heti
         }
     }
     else
     {
-        Debug.Log("Ovi on lukossa. Tarvitset avaimen!");
-        ShowLockMessage("Ovi on lukossa! Tarvitset avaimen.");
+        Debug.LogError("Seuraavan Scenen nimeä ei ole asetettu!");
     }
 }
 
+// Scene-vaihdon viivästykseen käytettävä metodi
+private void LoadSceneDelayed()
+{
+    SceneManager.LoadScene(nextSceneName);
+}
 
-    private void LoadNextScene()
-    {
-        if (!string.IsNullOrEmpty(nextSceneName))
-        {
-            SceneManager.LoadScene(nextSceneName);
-        }
-        else
-        {
-            Debug.LogError("Seuraavan Scenen nimeä ei ole asetettu!");
-        }
-    }
 
     private void ShowLockMessage(string message)
     {
