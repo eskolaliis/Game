@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1189927525}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PelinKulku, Assembly-CSharp
         m_MethodName: VihjeNappula
         m_Mode: 1
