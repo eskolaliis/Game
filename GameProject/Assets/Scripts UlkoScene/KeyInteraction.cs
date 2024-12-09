@@ -2,29 +2,21 @@ using UnityEngine;
 
 public class KeyInteraction : MonoBehaviour
 {
-    public AudioSource audioSource; // Audio Source komponentti
-    public string itemName = "Avain"; // Nimi inventaariossa
+    public AudioSource audioSource; // Linkitetään AudioSource
+    public string itemName = "Avain"; // Inventaarion nimi
 
     private void OnMouseDown()
     {
-        Debug.Log("Klikattiin esinettä: Avain");
+        Debug.Log($"Klikattiin esinettä: {itemName}");
 
-        // Tarkista ja aktivoi Audio Source, jos se on pois päältä
         if (audioSource != null)
         {
-            if (!audioSource.enabled)
-            {
-                audioSource.enabled = true; // Aktivoi Audio Source
-            }
-
             Debug.Log("Soitetaan avaimen ääni.");
-            audioSource.Play(); // Soita ääni
+            audioSource.Play(); // Soitetaan ääni
         }
         else
         {
-            Debug.LogWarning("Audio Source puuttuu!");
+            Debug.LogWarning("AudioSource ei ole määritetty!");
         }
-
-        
     }
 }
