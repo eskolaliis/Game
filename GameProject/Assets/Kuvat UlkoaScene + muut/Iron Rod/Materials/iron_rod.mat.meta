@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 097ba6ada602499499dbb003c2b89ee5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 649
+  packageName: Iron Rod
+  packageVersion: 3.0
+  assetPath: Assets/Iron Rod/Materials/iron_rod.mat
+  uploadId: 25856
