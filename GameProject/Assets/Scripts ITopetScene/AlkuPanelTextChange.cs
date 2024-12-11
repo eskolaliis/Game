@@ -10,7 +10,7 @@ public class AlkuPanelTextChange : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            panelText.text = "Löydä kirjan päästäksesi eroon Yrjöstä";
+            panelText.text = "Etsi kirjoja päästäksesi eroon Yrjöstä ja muista opettajista";
         }
     }
 }

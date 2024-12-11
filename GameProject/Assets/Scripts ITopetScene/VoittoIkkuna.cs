@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class VoittoIkkuna : MonoBehaviour
 {
-    public GameObject CanvasVoitto; // voittoteksti ja voittoikkuna
+    public GameObject CanvasVoitto; // tausta ja teksti voittoikkunassa
     public AudioSource hurrayAani; // AudioSource hurray- ‰‰nille
     public GameObject Tietokone; // sprite objekti
     public GameObject ArvoitusPaneeli; // arvoituspaneeli
@@ -17,7 +17,8 @@ public class VoittoIkkuna : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        if (!voitto) // est‰‰ useita aktivointeja
+        // est‰‰ useita aktivointeja
+        if (!voitto)
         {
             voitto = true;
 

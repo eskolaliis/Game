@@ -1,14 +1,14 @@
 using UnityEngine;
 using TMPro;
 
-public class QuestionAnswer3D : MonoBehaviour
+public class ArvoitusTulos : MonoBehaviour
 {
     public GameObject Books; // sprite objekti
-    public TextMeshPro arvoitusTeksti; // 3D arvoitusteksti
-    public TMP_InputField vastausKentta; // 3D syöttökenttä pelaajan vastaukselle
-    public TextMeshPro tulosTeksti; // 3D tulosteksti
-    public GameObject vastausPainike; // 3D tarkistapainike
-    public GameObject Tausta; // 3D tekstien taustaobjekti
+    public TextMeshPro arvoitusTeksti; // arvoitusteksti
+    public TMP_InputField vastausKentta; // syöttökenttä pelaajan vastaukselle
+    public TextMeshPro tulosTeksti; // tulosteksti
+    public GameObject vastausPainike; // tarkistapainike
+    public GameObject Tausta; // tekstien taustaobjekti
     public string oikeaVastaus = "1"; // oikea vastaus kysymykseen
     public string kysymys = "Matemaattinen arvoitus:\nJos 1=5, 2=6, 3=7, 4=8, 5=? "; // arvoitus kysymys
     public GameObject Tietokone; // sprite objekti
@@ -60,7 +60,7 @@ public class QuestionAnswer3D : MonoBehaviour
         if (string.Equals(pelaajanVastaus, oikeaVastaus, System.StringComparison.OrdinalIgnoreCase))
         {
             tulosTeksti.text = "Annoit oikean vastauksen!\nPalohälytys laukeaa. Kaikki opettajat poistuvat opehuoneesta. Nyt etsi Yrjön tietokone.";
-            // kun oikea vastaus annettu, piilota arvoitusteksti, syöttökenttä, vastauspainike ja tausta
+            // kun oikea vastaus annettu, piilota arvoitusteksti, syöttökenttä, vastauspainike ja näytä tausta, sprite ja käynistä konfetti particle system
             arvoitusTeksti.gameObject.SetActive(false);
             vastausKentta.gameObject.SetActive(false);
             vastausPainike.SetActive(false);
