@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class VoittoIkkuna : MonoBehaviour
 {
-    public GameObject VoittoTeksti; // voittoteksti
-    public GameObject VoittoTausta; // 3D tekstien taustaobjekti
+    public GameObject Canvas1; // voittoteksti ja voittoikkuna
     public AudioSource hurrayAani; // AudioSource hurray- ‰‰nille
     public bool voitto = false;
     public void Start()
     {
         // alussa voittoikkuna on piilotettu
-        if (VoittoTeksti != null && VoittoTausta != null)
+        if (Canvas1 != null)
         {
-            VoittoTeksti.SetActive(false);
-            VoittoTausta.SetActive(false);
+            Canvas1.SetActive(false);
         }
     }
     public void OnMouseDown()
@@ -22,10 +20,9 @@ public class VoittoIkkuna : MonoBehaviour
             voitto = true;
 
             // n‰ytt‰‰ voittoikkuna
-            if (VoittoTeksti != null)
+            if (Canvas1 != null)
             {
-                VoittoTeksti.SetActive(true);
-                VoittoTausta.SetActive(true);
+                Canvas1.SetActive(true);
             }
 
             // soittaa hurray- ‰‰nt‰
