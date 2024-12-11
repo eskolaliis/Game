@@ -10,23 +10,23 @@ public class PuzzleController : MonoBehaviour
 
     public Sprite toolIcon; // Työkalun kuvake
 
+    private bool puzzleSolved = false; // Estää työkalun uudelleen antamisen
+
     public void CheckAnswer()
     {
-        string playerAnswer = answerInputField.text.ToLower(); // Pelaajan vastaus pienellä
-        if (playerAnswer == correctAnswer)
+        string playerAnswer = answerInputField.text.ToLower(); // Pelaajan vastaus pienellä kirjaimilla
+        if (playerAnswer == correctAnswer && !puzzleSolved)
         {
             hintText.text = "Oikein! Tässä on palkintosi.";
             Debug.Log("Pelaaja vastasi oikein!");
-            // Voit lisätä logiikkaa työkalun antamiseen
+            puzzleSolved = true; // Merkitään tehtävä ratkaistuksi
+            HidePuzzleUI(); // Kutsu piilota UI ja anna työkalu
         }
         else
         {
             hintText.text = "Väärin! Yritä uudelleen.";
             Debug.Log("Pelaaja vastasi väärin.");
         }
-
-        // Piilota PuzzleUI ja vihjeteksti 5 sekunnin kuluttua
-        Invoke("HidePuzzleUI", 5f);
     }
 
     private void HidePuzzleUI()
@@ -34,18 +34,19 @@ public class PuzzleController : MonoBehaviour
         hintText.text = ""; // Tyhjennä vihjeteksti
         puzzleUI.SetActive(false); // Piilota koko PuzzleUI
 
-        // Lisää työkalu inventaarioon
-        InventoryManager inventory = Object.FindFirstObjectByType<InventoryManager>();
-        if (inventory != null && toolIcon != null)
+        // Lisää työkalu inventaarioon vain, jos tehtävä on ratkaistu
+        if (puzzleSolved)
         {
-            inventory.AddItem("Työkalu", toolIcon); // Lisää työkalu inventaarioon kuvakkeen kanssa
-            Debug.Log("Työkalu lisätty inventaarioon!");
-        }
-        else
-        {
-            Debug.LogWarning("Inventaario tai työkalun kuvake puuttuu!");
+            InventoryManager inventory = Object.FindFirstObjectByType<InventoryManager>();
+            if (inventory != null && toolIcon != null)
+            {
+                inventory.AddItem("Työkalu", toolIcon); // Lisää työkalu inventaarioon kuvakkeen kanssa
+                Debug.Log("Työkalu lisätty inventaarioon!");
+            }
+            else
+            {
+                Debug.LogWarning("Inventaario tai työkalun kuvake puuttuu!");
+            }
         }
     }
-
-
 }
