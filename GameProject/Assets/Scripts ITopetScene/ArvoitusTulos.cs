@@ -3,16 +3,14 @@ using TMPro;
 
 public class QuestionAnswer3D : MonoBehaviour
 {
-    public GameObject Books; // sprite objekti
-    public TextMeshPro arvoitusTeksti; // 3D arvoitusteksti
-    public TMP_InputField vastausKentta; // 3D syöttökenttä pelaajan vastaukselle
-    public TextMeshPro tulosTeksti; // 3D tulosteksti
-    public GameObject vastausPainike; // 3D tarkistapainike
-    public GameObject Tausta; // 3D tekstien taustaobjekti
-    public string oikeaVastaus = "1"; // oikea vastaus kysymykseen
-    public string kysymys = "Matemaattinen arvoitus:\nJos 1=5, 2=6, 3=7, 4=8, 5=? "; // arvoitus kysymys
-    public GameObject Tietokone; // sprite objekti
-
+    [SerializeField] public GameObject Books; // sprite objekti
+    [SerializeField] public TextMeshPro arvoitusTeksti; // 3D arvoitusteksti
+    [SerializeField] public TMP_InputField vastausKentta; // 3D syöttökenttä pelaajan vastaukselle
+    [SerializeField] public TextMeshPro tulosTeksti; // 3D tulosteksti
+    [SerializeField] public GameObject vastausPainike; // 3D tarkistapainike
+    [SerializeField] public GameObject Tausta; // 3D tekstien taustaobjekti
+    [SerializeField] public string oikeaVastaus = "1"; // oikea vastaus kysymykseen
+    [SerializeField] public string kysymys = "Matemaattinen arvoitus:\nJos 1=5, 2=6, 3=7, 4=8, 5=? "; // arvoitus kysymys
 
     public bool kysymysActive = false;
 
@@ -24,7 +22,6 @@ public class QuestionAnswer3D : MonoBehaviour
         tulosTeksti.gameObject.SetActive(false);
         vastausPainike.SetActive(false);
         Tausta.SetActive(false);
-        Tietokone.SetActive(false);
 
     }
 
@@ -63,8 +60,7 @@ public class QuestionAnswer3D : MonoBehaviour
             arvoitusTeksti.gameObject.SetActive(false);
             vastausKentta.gameObject.SetActive(false);
             vastausPainike.SetActive(false);
-            Tausta.SetActive(true);
-            Tietokone.SetActive(true);
+            Tausta.SetActive(true); 
         }
         else
         {
