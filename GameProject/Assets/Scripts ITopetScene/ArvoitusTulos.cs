@@ -11,6 +11,7 @@ public class ArvoitusTulos : MonoBehaviour
     public GameObject Tausta; // tekstien taustaobjekti
     public string oikeaVastaus = "1"; // oikea vastaus kysymykseen
     public string kysymys = "Matemaattinen arvoitus:\nJos 1=5, 2=6, 3=7, 4=8, 5=? "; // arvoitus kysymys
+    public GameObject Panel; // panel objekti
     public GameObject Tietokone; // sprite objekti
     public ParticleSystem confettiSystem; // konfetti particle system
 
@@ -24,6 +25,7 @@ public class ArvoitusTulos : MonoBehaviour
         tulosTeksti.gameObject.SetActive(false);
         vastausPainike.SetActive(false);
         Tausta.SetActive(false);
+        Panel.SetActive(false);
         Tietokone.SetActive(false);
         confettiSystem.gameObject.SetActive(false );
 
@@ -65,6 +67,7 @@ public class ArvoitusTulos : MonoBehaviour
             vastausKentta.gameObject.SetActive(false);
             vastausPainike.SetActive(false);
             Tausta.SetActive(true);
+            Panel.SetActive(true);
             Tietokone.SetActive(true);
             confettiSystem.gameObject.SetActive(true);
             confettiSystem.Play();
