@@ -8,6 +8,6 @@ public class HintText : MonoBehaviour
 
     public void HintBtnClicked()
     {
-        panelText.text = "Löydä kirjoja päästäksesi eroon Yrjöstä";
+        panelText.text = "Etsi kirjoja päästäksesi eroon Yrjöstä ja muista opettajista";
     }
 }
