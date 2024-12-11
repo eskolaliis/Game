@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class BirdController : MonoBehaviour
+
 {
     private Animator animator;
 
@@ -65,6 +66,17 @@ private void OnMouseDown()
             }
         }
     }
+
+    public GameObject tool; // Viittaus työkaluun
+
+private void GiveTool()
+{
+    if (tool != null)
+    {
+        tool.SetActive(true); // Aktivoi työkalu
+        Debug.Log("Lintu toi työkalun!");
+    }
+}
 
 
 
