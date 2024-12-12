@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SeuraavaKentta : MonoBehaviour
 {
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         SceneManager.LoadScene("LansiScene");
     }
