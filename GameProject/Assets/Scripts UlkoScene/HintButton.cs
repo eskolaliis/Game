@@ -37,7 +37,7 @@ public class HintButton : MonoBehaviour
         {
             hintText.text = message; // Aseta teksti
             hintText.enabled = true; // Näytä teksti
-            Invoke("HideHint", 5f); // Piilota teksti 5 sekunnin jälkeen
+            Invoke("HideHint", 3f); // Piilota teksti 3 sekunnin jälkeen
         }
     }
 

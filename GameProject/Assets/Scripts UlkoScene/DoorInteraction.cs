@@ -105,7 +105,7 @@ private void LoadSceneDelayed()
         {
             lockMessage.text = message; // Aseta viesti tekstielementtiin
             lockMessage.enabled = true; // Näytä teksti
-            Invoke("HideLockMessage", 5f); // Piilota teksti 5 sekunnin jälkeen
+            Invoke("HideLockMessage", 3f); // Piilota teksti 3 sekunnin jälkeen
         }
     }
 

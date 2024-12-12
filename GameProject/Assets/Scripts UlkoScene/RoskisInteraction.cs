@@ -99,7 +99,7 @@ private void OnMouseDown()
         {
             messageText.text = "Roskis on jumissa! Tarvitset työkalun.";
             Debug.Log("Et voi avata roskista ilman oikeaa työkalua!");
-            Invoke(nameof(ClearMessage), 5f); // Poistaa viestin 5 sekunnin kuluttua
+            Invoke(nameof(ClearMessage), 3f); // Poistaa viestin 3 sekunnin kuluttua
         }
     }
 }
