@@ -5,7 +5,7 @@ public class ArvoitusTulos : MonoBehaviour
 {
     public GameObject Books; // sprite objekti
     public TextMeshPro arvoitusTeksti; // arvoitusteksti
-    public TMP_InputField vastausKentta; // syöttökenttä pelaajan vastaukselle
+    public TMP_InputField vastausKentta; // syï¿½ttï¿½kenttï¿½ pelaajan vastaukselle
     public TextMeshPro tulosTeksti; // tulosteksti
     public GameObject vastausPainike; // tarkistapainike
     public GameObject Tausta; // tekstien taustaobjekti
@@ -33,13 +33,13 @@ public class ArvoitusTulos : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("Sprite napsautettiin!"); // Log vahvistus, että napsautus on havaittu
+        Debug.Log("Sprite napsautettiin!"); // Log vahvistus, ettï¿½ napsautus on havaittu
 
         if (!kysymysActive && Books != null && Books.activeSelf)
         {
-            Debug.Log("Näytetään arvoitus, syöttökenttä, painike ja tausta."); // Log arvoituksen aktivointia varten
+            Debug.Log("NÃ¤ytetÃ¤Ã¤n arvoitus, syÃ¶ttÃ¶kenttÃ¤, painike ja tausta."); // Log arvoituksen aktivointia varten
 
-            // näyttää arvoitus, syöttökenttä, painike ja tausta
+            // nï¿½yttï¿½ï¿½ arvoitus, syï¿½ttï¿½kenttï¿½, painike ja tausta
             arvoitusTeksti.gameObject.SetActive(true);
             vastausKentta.gameObject.SetActive(true);
             vastausPainike.SetActive(true);
@@ -61,8 +61,8 @@ public class ArvoitusTulos : MonoBehaviour
 
         if (string.Equals(pelaajanVastaus, oikeaVastaus, System.StringComparison.OrdinalIgnoreCase))
         {
-            tulosTeksti.text = "Annoit oikean vastauksen!\nPalohälytys laukeaa. Kaikki opettajat poistuvat opehuoneesta. Nyt etsi Yrjön tietokone.";
-            // kun oikea vastaus annettu, piilota arvoitusteksti, syöttökenttä, vastauspainike ja näytä tausta, sprite ja käynistä konfetti particle system
+            tulosTeksti.text = "Annoit oikean vastauksen!\nPalohÃ¤lytys laukeaa. Kaikki opettajat poistuvat opehuoneesta. Nyt etsi YrjÃ¶n tietokone.";
+            // kun oikea vastaus annettu, piilota arvoitusteksti, syï¿½ttï¿½kenttï¿½, vastauspainike ja nï¿½ytï¿½ tausta, sprite ja kï¿½ynistï¿½ konfetti particle system
             arvoitusTeksti.gameObject.SetActive(false);
             vastausKentta.gameObject.SetActive(false);
             vastausPainike.SetActive(false);
@@ -74,18 +74,18 @@ public class ArvoitusTulos : MonoBehaviour
         }
         else
         {
-            // kun väärä vastaus annettu, piilota arvoitusteksti ja edelleen näytä syöttökenttä, vastauspainike ja tausta
-            tulosTeksti.text = "Yritä uudelleen!\n\nMatemaattinen arvoitus:\nJos 1=5, 2=6, 3=7, 4=8, 5=?";
+            // kun vï¿½ï¿½rï¿½ vastaus annettu, piilota arvoitusteksti ja edelleen nï¿½ytï¿½ syï¿½ttï¿½kenttï¿½, vastauspainike ja tausta
+            tulosTeksti.text = "YritÃ¤ uudelleen!\n\nMatemaattinen arvoitus:\nJos 1=5, 2=6, 3=7, 4=8, 5=?";
             arvoitusTeksti.gameObject.SetActive(false);
             Tausta.SetActive(true);
         }
 
-        tulosTeksti.gameObject.SetActive(true); // näytä tulosteksti
+        tulosTeksti.gameObject.SetActive(true); // nï¿½ytï¿½ tulosteksti
     }
 
     public void HideQuestionUI()
     {
-        // Piilota kaikki arvoitukeen liittyvät elementit ja tausta
+        // Piilota kaikki arvoitukeen liittyvï¿½t elementit ja tausta
         arvoitusTeksti.gameObject.SetActive(false);
         vastausKentta.gameObject.SetActive(false);
         vastausPainike.SetActive(false);
